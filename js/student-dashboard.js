@@ -3,7 +3,7 @@ if (localStorage.getItem("loggedIn") !== "true") {
 }
 
 const roll = localStorage.getItem("studentRoll");
-const students = JSON.parse(localStorage.getItem("students")) || [];
+let students = JSON.parse(localStorage.getItem("students")) || [];
 const attendance = JSON.parse(localStorage.getItem("attendance")) || [];
 const notifications = JSON.parse(localStorage.getItem("notifications")) || {};
 
@@ -25,30 +25,66 @@ if (welcome) {
 const profilePhoto = document.getElementById("profilePhoto");
 
 if (profilePhoto) {
-    if (student.photo) {
-        profilePhoto.src = student.photo;
-    } else {
-        profilePhoto.src = "images/default-profile.png";
-    }
+    profilePhoto.src = student.photo || "images/default-profile.png";
 }
+
+
+
+const changePhotoBtn = document.getElementById("changePhotoBtn");
+const photoInput = document.getElementById("photoInput");
+
+if (changePhotoBtn && photoInput) {
+
+    changePhotoBtn.addEventListener("click", function () {
+        photoInput.click();
+    });
+
+    photoInput.addEventListener("change", function (e) {
+
+        const file = e.target.files[0];
+
+        if (!file) return;
+
+        const reader = new FileReader();
+
+        reader.onload = function (event) {
+
+            profilePhoto.src = event.target.result;
+
+            student.photo = event.target.result;
+
+            localStorage.setItem("students", JSON.stringify(students));
+
+            alert("Profile photo updated successfully!");
+
+        };
+
+        reader.readAsDataURL(file);
+
+    });
+
+}
+
+
 
 function updateDateTime() {
 
     const now = new Date();
 
-    if (document.getElementById("currentDate")) {
-        document.getElementById("currentDate").innerText =
-            now.toLocaleDateString("en-IN", {
-                weekday: "long",
-                day: "numeric",
-                month: "long",
-                year: "numeric"
-            });
+    const date = document.getElementById("currentDate");
+    const time = document.getElementById("currentTime");
+
+    if (date) {
+        date.innerText = now.toLocaleDateString("en-IN", {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        });
     }
 
-    if (document.getElementById("currentTime")) {
-        document.getElementById("currentTime").innerText =
-            now.toLocaleTimeString();
+    if (time) {
+        time.innerText = now.toLocaleTimeString();
     }
 
 }
@@ -56,15 +92,15 @@ function updateDateTime() {
 updateDateTime();
 setInterval(updateDateTime, 1000);
 
+
+
 let presentDays = 0;
 let totalDays = attendance.length;
 
 attendance.forEach(record => {
-
     if (record.present.includes(student.roll)) {
         presentDays++;
     }
-
 });
 
 let absentDays = totalDays - presentDays;
@@ -77,17 +113,19 @@ document.getElementById("presentDays").innerText = presentDays;
 document.getElementById("absentDays").innerText = absentDays;
 document.getElementById("percentage").innerText = percentage + "%";
 
+
+
 const historyTable = document.getElementById("historyTable");
 
 historyTable.innerHTML = "";
 
 attendance.forEach(record => {
 
-    let status = record.present.includes(student.roll)
+    const status = record.present.includes(student.roll)
         ? "Present"
         : "Absent";
 
-    let color = status === "Present"
+    const color = status === "Present"
         ? "green"
         : "red";
 
@@ -102,13 +140,15 @@ attendance.forEach(record => {
 
 });
 
+
+
 const notificationTable = document.getElementById("notificationTable");
 
 if (notificationTable) {
 
     notificationTable.innerHTML = "";
 
-    let studentNotifications = notifications[roll] || [];
+    const studentNotifications = notifications[roll] || [];
 
     if (studentNotifications.length === 0) {
 
@@ -134,6 +174,8 @@ if (notificationTable) {
     }
 
 }
+
+
 
 document.getElementById("logoutBtn").addEventListener("click", function () {
 
