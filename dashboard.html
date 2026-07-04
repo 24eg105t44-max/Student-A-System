@@ -82,15 +82,33 @@
 
         <div class="profile">
 
-            <i class="fa-solid fa-user-circle"></i>
+            <img
+                id="adminPhoto"
+                src="images/default-profile.png"
+                alt="Admin Photo">
 
-            <span id="adminName">Admin</span>
+            <div class="profile-info">
+
+                <span id="adminName">Admin</span>
+
+                <button id="changePhotoBtn">
+                    <i class="fa-solid fa-camera"></i>
+                    Change Photo
+                </button>
+
+                <input
+                    type="file"
+                    id="photoInput"
+                    accept="image/*"
+                    hidden>
+
+            </div>
 
         </div>
 
     </div>
 
-    <!-- Cards -->
+    <!-- Dashboard Cards -->
 
     <div class="cards">
 
@@ -110,7 +128,7 @@
 
             <h2 id="presentStudents">0</h2>
 
-            <p>Present</p>
+            <p>Present Students</p>
 
         </div>
 
@@ -120,7 +138,7 @@
 
             <h2 id="absentStudents">0</h2>
 
-            <p>Absent</p>
+            <p>Absent Students</p>
 
         </div>
 
@@ -130,13 +148,13 @@
 
             <h2 id="attendancePercentage">0%</h2>
 
-            <p>Attendance</p>
+            <p>Attendance Percentage</p>
 
         </div>
 
     </div>
 
-    <!-- Information Section -->
+    <!-- Welcome Section -->
 
     <div class="content">
 
@@ -145,8 +163,10 @@
             <h2>Welcome 👋</h2>
 
             <p>
-                Manage student records and attendance easily using
-                this Student Attendance Management System.
+                Welcome to the Student Attendance Management System.
+                This dashboard allows you to manage student records,
+                mark attendance, view reports, and monitor attendance
+                statistics efficiently.
             </p>
 
         </div>
