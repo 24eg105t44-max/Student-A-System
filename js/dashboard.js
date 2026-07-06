@@ -1,16 +1,13 @@
-// Check Login
 if (localStorage.getItem("loggedIn") !== "true") {
     window.location.href = "index.html";
 }
 
-// Admin Name
 const adminName = document.getElementById("adminName");
 
 if (adminName) {
     adminName.innerText = localStorage.getItem("username") || "Admin";
 }
 
-// Profile Photo
 const adminPhoto = document.getElementById("adminPhoto");
 const changePhotoBtn = document.getElementById("changePhotoBtn");
 const photoInput = document.getElementById("photoInput");
@@ -36,7 +33,6 @@ photoInput.addEventListener("change", function () {
     reader.onload = function (e) {
 
         adminPhoto.src = e.target.result;
-
         localStorage.setItem("adminPhoto", e.target.result);
 
     };
@@ -45,16 +41,11 @@ photoInput.addEventListener("change", function () {
 
 });
 
-// Load Students
-let students =
-    JSON.parse(localStorage.getItem("students")) || [];
+let students = JSON.parse(localStorage.getItem("students")) || [];
 
-document.getElementById("totalStudents").innerText =
-    students.length;
+document.getElementById("totalStudents").innerText = students.length;
 
-// Load Attendance
-let attendance =
-    JSON.parse(localStorage.getItem("attendance")) || [];
+let attendance = JSON.parse(localStorage.getItem("attendance")) || [];
 
 let present = 0;
 let absent = 0;
@@ -71,7 +62,6 @@ if (attendance.length > 0) {
 document.getElementById("presentStudents").innerText = present;
 document.getElementById("absentStudents").innerText = absent;
 
-// Attendance Percentage
 let percentage = 0;
 
 if (students.length > 0) {
@@ -80,10 +70,8 @@ if (students.length > 0) {
 
 }
 
-document.getElementById("attendancePercentage").innerText =
-    percentage + "%";
+document.getElementById("attendancePercentage").innerText = percentage + "%";
 
-// Date & Time
 function updateDateTime() {
 
     const now = new Date();
@@ -105,14 +93,13 @@ updateDateTime();
 
 setInterval(updateDateTime, 1000);
 
-// Logout
-document
-.getElementById("logoutBtn")
-.addEventListener("click", function () {
+document.getElementById("logoutBtn").addEventListener("click", function () {
 
     if (confirm("Are you sure you want to logout?")) {
 
         localStorage.removeItem("loggedIn");
+        localStorage.removeItem("userRole");
+        localStorage.removeItem("username");
 
         window.location.href = "index.html";
 
@@ -120,7 +107,6 @@ document
 
 });
 
-// Sample Data
 if (students.length === 0) {
 
     students = [
@@ -130,7 +116,8 @@ if (students.length === 0) {
             name: "Rahul Kumar",
             roll: "23CSE001",
             department: "CSE",
-            year: "III"
+            year: "III",
+            password: "rahul123"
         },
 
         {
@@ -138,7 +125,8 @@ if (students.length === 0) {
             name: "Anjali",
             roll: "23CSE002",
             department: "CSE",
-            year: "III"
+            year: "III",
+            password: "anjali123"
         },
 
         {
@@ -146,17 +134,14 @@ if (students.length === 0) {
             name: "Kiran",
             roll: "23CSE003",
             department: "CSE",
-            year: "III"
+            year: "III",
+            password: "kiran123"
         }
 
     ];
 
-    localStorage.setItem(
-        "students",
-        JSON.stringify(students)
-    );
+    localStorage.setItem("students", JSON.stringify(students));
 
-    document.getElementById("totalStudents").innerText =
-        students.length;
+    document.getElementById("totalStudents").innerText = students.length;
 
 }
