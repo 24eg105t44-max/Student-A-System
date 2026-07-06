@@ -454,3 +454,196 @@ table td{
 table tr:hover{
     background:#f5f8ff;
 }
+
+
+button{
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+}
+
+
+
+.card,
+.panel,
+.topbar{
+    animation:fadeUp .6s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#eef3fb;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#1565c0;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#0d47a1;
+}
+
+
+
+.footer{
+    margin-top:30px;
+    text-align:center;
+    color:#777;
+    font-size:14px;
+}
+
+/
+
+@media(max-width:1100px){
+
+    .dashboard-grid{
+        grid-template-columns:1fr;
+    }
+
+    .quick-actions{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:992px){
+
+    .sidebar{
+        width:80px;
+    }
+
+    .logo h2{
+        display:none;
+    }
+
+    .logo img{
+        width:55px;
+        height:55px;
+    }
+
+    .sidebar ul li a{
+        justify-content:center;
+        padding:16px;
+    }
+
+    .sidebar ul li a span{
+        display:none;
+    }
+
+    .sidebar ul li a i{
+        margin:0;
+    }
+
+    .main{
+        margin-left:80px;
+        width:calc(100% - 80px);
+    }
+
+    .topbar{
+        flex-direction:column;
+        gap:20px;
+        text-align:center;
+    }
+
+    .top-right{
+        flex-direction:column;
+    }
+
+    .profile{
+        flex-direction:column;
+    }
+
+}
+
+@media(max-width:768px){
+
+    body{
+        overflow-x:hidden;
+    }
+
+    .main{
+        padding:15px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .dashboard-grid{
+        grid-template-columns:1fr;
+    }
+
+    .quick-actions{
+        grid-template-columns:1fr;
+    }
+
+    .search-box input{
+        width:100%;
+    }
+
+    .top-left h1{
+        font-size:24px;
+    }
+
+    .profile img{
+        width:55px;
+        height:55px;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .topbar{
+        padding:20px;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+    .panel{
+        padding:20px;
+    }
+
+    .card h2{
+        font-size:28px;
+    }
+
+    .card i{
+        font-size:36px;
+    }
+
+    .profile h3{
+        font-size:16px;
+    }
+
+    .notification{
+        width:42px;
+        height:42px;
+    }
+
+}
