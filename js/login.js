@@ -7,7 +7,6 @@ const password = document.getElementById("password");
 const error = document.getElementById("error");
 const togglePassword = document.getElementById("togglePassword");
 const loginBtn = document.querySelector(".login-btn");
-
 loginForm.addEventListener("submit", function (e) {
 
     e.preventDefault();
@@ -31,7 +30,6 @@ loginForm.addEventListener("submit", function (e) {
         '<i class="fa-solid fa-spinner fa-spin"></i> Logging in...';
 
     setTimeout(function () {
-
 if (role === "admin") {
 
             if (
@@ -59,8 +57,7 @@ if (role === "admin") {
             }
 
         }
-
-         else {
+else {
 
             let students =
                 JSON.parse(localStorage.getItem("students")) || [];
@@ -102,7 +99,6 @@ if (role === "admin") {
     }, 600);
 
 });
-
 function loginFailed(message) {
 
     error.style.color = "#ff8080";
@@ -114,7 +110,6 @@ function loginFailed(message) {
         '<i class="fa-solid fa-right-to-bracket"></i> Login';
 
 }
-
 togglePassword.addEventListener("click", function () {
 
     if (password.type === "password") {
@@ -134,7 +129,6 @@ togglePassword.addEventListener("click", function () {
     }
 
 });
-
 loginType.addEventListener("change", function () {
 
     if (this.value === "admin") {
@@ -150,14 +144,12 @@ loginType.addEventListener("change", function () {
     }
 
 });
-
 window.onload = function () {
 
     username.focus();
 
 };
-
-ocument.addEventListener("keydown", function (e) {
+document.addEventListener("keydown", function (e) {
 
     if (e.key === "Enter") {
 
@@ -166,4 +158,3 @@ ocument.addEventListener("keydown", function (e) {
     }
 
 });
-            
