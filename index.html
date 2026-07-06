@@ -8,11 +8,9 @@
 
     <link rel="stylesheet" href="css/login.css">
 
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -23,8 +21,16 @@
 
     <div class="login-container">
 
-        <h1>Student Attendance</h1>
-        <h3>Management System</h3>
+        <div style="margin-bottom: 25px;">
+            <div style="background: #fff; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 15px auto; box-shadow: 0 5px 15px rgba(0,0,0,0.15);">
+                <i class="fa-solid fa-user-graduate" style="color: #1565c0; font-size: 30px;"></i>
+            </div>
+            <h1>Student Attendance</h1>
+            <h3>Management System</h3>
+            <div style="color: #e3f2fd; font-size: 15px; margin-top: 10px; opacity: 0.85; font-weight: 500;">
+                <i class="fa-solid fa-user-lock" style="font-size: 13px; margin-right: 5px;"></i> Login Portal
+            </div>
+        </div>
 
         <form id="loginForm">
 
@@ -38,26 +44,26 @@
 
             <div class="input-box">
                 <i class="fa-solid fa-user"></i>
-                <input type="text" id="username"
-                    placeholder="Enter Username / Roll No"
-                    autocomplete="off" required>
+                <input type="text" id="username" placeholder="Enter Username / Roll No" autocomplete="off" required>
             </div>
 
             <div class="input-box">
                 <i class="fa-solid fa-lock"></i>
-                <input type="password"
-                    id="password"
-                    placeholder="Enter Password"
-                    required>
-
+                <input type="password" id="password" placeholder="Enter Password" required>
                 <span id="togglePassword">
                     <i class="fa-solid fa-eye"></i>
                 </span>
             </div>
 
+            <div class="options-link">
+                <label style="display: flex; align-items: center; gap: 5px; cursor: pointer;">
+                    <input type="checkbox" id="rememberMe" style="accent-color: #1565c0; width: auto; padding: 0;"> Remember Me
+                </label>
+                <a href="#" id="forgotPassword">Forgot Password?</a>
+            </div>
+
             <button class="login-btn" type="submit">
-                <i class="fa-solid fa-right-to-bracket"></i>
-                Login
+                <i class="fa-solid fa-right-to-bracket" style="margin-right: 5px;"></i> Login
             </button>
 
             <p id="error"></p>
@@ -66,32 +72,4 @@
 
         <hr>
 
-        <div style="color:white;font-size:14px;line-height:1.8;">
-
-            <strong>Demo Login Credentials</strong>
-
-            <br><br>
-
-            👨‍💼 <b>Admin</b><br>
-            Username: <b>admin</b><br>
-            Password: <b>admin123</b>
-
-            <br><br>
-
-            👨‍🎓 <b>Student</b><br>
-            Roll No: <b>23CSE001</b><br>
-            Password: <b>rahul123</b>
-
-        </div>
-
-        <div class="footer">
-            © 2026 Student Attendance Management System
-        </div>
-
-    </div>
-
-    <script src="js/login.js"></script>
-
-</body>
-
-</html>
+        <div class="demo-credentials" style="color: white; font-size: 14px; line-height: 1.8
