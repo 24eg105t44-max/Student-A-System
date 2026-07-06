@@ -9,11 +9,11 @@
 
     <link rel="stylesheet" href="css/login.css">
 
-    <!-- Font Awesome -->
+    
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <!-- Google Font -->
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 </head>
@@ -24,8 +24,9 @@
 
     <div class="login-container">
 
+       
         <div class="logo">
-            <i class="fa-solid fa-user-graduate"></i>
+            <img src="images/sams-logo.png" alt="SAMS Logo">
         </div>
 
         <h1>Student Attendance</h1>
@@ -35,16 +36,18 @@
 
             <!-- Login Type -->
             <div class="input-box">
+
                 <i class="fa-solid fa-users"></i>
 
                 <select id="loginType" required>
                     <option value="admin">Admin Login</option>
                     <option value="student">Student Login</option>
                 </select>
+
             </div>
 
-            <!-- Username / Roll Number -->
             <div class="input-box">
+
                 <i class="fa-solid fa-user"></i>
 
                 <input
@@ -53,10 +56,12 @@
                     placeholder="Enter Username / Roll No"
                     autocomplete="off"
                     required>
+
             </div>
 
-            <!-- Password -->
+          
             <div class="input-box">
+
                 <i class="fa-solid fa-lock"></i>
 
                 <input
@@ -68,36 +73,50 @@
                 <span id="togglePassword">
                     <i class="fa-solid fa-eye"></i>
                 </span>
+
             </div>
 
-            <!-- Login Button -->
             <button class="login-btn" type="submit">
+
                 <i class="fa-solid fa-right-to-bracket"></i>
+
                 Login
+
             </button>
 
             <p id="error"></p>
 
         </form>
 
-        <hr style="margin:20px 0; opacity:.3;">
+        <hr style="margin:25px 0; opacity:.3;">
 
-        <!-- Demo Credentials -->
-        <div style="color:white; font-size:14px; line-height:1.8;">
+        <div class="demo">
 
-            <strong>Demo Login Credentials</strong>
+            <h4>Demo Credentials</h4>
 
-            <br><br>
+            <div class="credential">
 
-            👨‍💼 <b>Admin</b><br>
-            Username : <b>admin</b><br>
-            Password : <b>admin123</b>
+                <i class="fa-solid fa-user-tie"></i>
 
-            <br><br>
+                <div>
+                    <strong>Admin</strong><br>
+                    Username : <b>admin</b><br>
+                    Password : <b>admin123</b>
+                </div>
 
-            👨‍🎓 <b>Student</b><br>
-            Roll No : <b>23CSE001</b><br>
-            Password : <b>rahul123</b>
+            </div>
+
+            <div class="credential">
+
+                <i class="fa-solid fa-user-graduate"></i>
+
+                <div>
+                    <strong>Student</strong><br>
+                    Roll No : <b>23CSE001</b><br>
+                    Password : <b>rahul123</b>
+                </div>
+
+            </div>
 
         </div>
 
