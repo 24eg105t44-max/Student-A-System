@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Student Attendance Management System</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/dashboard.css">
 
-<title>Admin Dashboard | Student Attendance Management System</title>
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-<link rel="stylesheet" href="css/dashboard.css">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 </head>
-
 <body>
+
+
 
 <div class="sidebar">
 
     <div class="logo">
 
-        <img src="images/sams-logo.png" alt="SAMS Logo">
+        <i class="fa-solid fa-user-graduate"></i>
 
         <h2>SAMS</h2>
 
@@ -33,8 +31,7 @@ rel="stylesheet">
 
         <li class="active">
             <a href="dashboard.html">
-                <i class="fa-solid fa-house"></i>
-                Dashboard
+                <i class="fa-solid fa-house"></i>  Dashboard
             </a>
         </li>
 
@@ -70,52 +67,37 @@ rel="stylesheet">
 
 </div>
 
+
+
 <div class="main">
 
-    <!-- Top Bar -->
+    
 
     <div class="topbar">
 
-        <div class="top-left">
+        <h1>Student Attendance Dashboard</h1>
 
-            <h1>Admin Dashboard</h1>
+        <div class="profile">
 
-            <p>Student Attendance Management System</p>
+            <img
+                id="adminPhoto"
+                src="images/default-profile.png"
+                alt="Admin Photo">
 
-        </div>
+            <div class="profile-info">
 
-        <div class="top-right">
+                <span id="adminName">Admin</span>
 
-            <div class="search-box">
-
-                <i class="fa-solid fa-search"></i>
+                <button id="changePhotoBtn">
+                    <i class="fa-solid fa-camera"></i>
+                    Change Photo
+                </button>
 
                 <input
-                    type="text"
-                    placeholder="Search...">
-
-            </div>
-
-            <div class="notification">
-
-                <i class="fa-solid fa-bell"></i>
-
-            </div>
-
-            <div class="profile">
-
-                <img
-                    src="images/default-profile.png"
-                    id="adminPhoto"
-                    alt="Admin">
-
-                <div>
-
-                    <h3 id="adminName">Admin</h3>
-
-                    <small>Administrator</small>
-
-                </div>
+                    type="file"
+                    id="photoInput"
+                    accept="image/*"
+                    hidden>
 
             </div>
 
@@ -123,7 +105,9 @@ rel="stylesheet">
 
     </div>
 
-   <div class="cards">
+   
+
+    <div class="cards">
 
         <div class="card blue">
 
@@ -141,7 +125,7 @@ rel="stylesheet">
 
             <h2 id="presentStudents">0</h2>
 
-            <p>Present</p>
+            <p>Present Students</p>
 
         </div>
 
@@ -151,7 +135,7 @@ rel="stylesheet">
 
             <h2 id="absentStudents">0</h2>
 
-            <p>Absent</p>
+            <p>Absent Students</p>
 
         </div>
 
@@ -161,87 +145,40 @@ rel="stylesheet">
 
             <h2 id="attendancePercentage">0%</h2>
 
-            <p>Attendance</p>
+            <p>Attendance Percentage</p>
 
         </div>
 
     </div>
 
-   <div class="dashboard-grid">
+   
 
-<div class="panel">
+    <div class="content">
 
-            <h2>Welcome</h2>
+        <div class="welcome">
+
+            <h2>Welcome 👋</h2>
 
             <p>
-
                 Welcome to the Student Attendance Management System.
-
-                Manage students, mark attendance, generate reports,
-
-                and monitor attendance statistics efficiently.
-
+                This dashboard allows you to manage student records,
+                mark attendance, view reports, and monitor attendance
+                statistics efficiently.
             </p>
 
         </div>
 
-      <div class="panel">
+        <div class="datetime">
 
-            <h2>Date & Time</h2>
+            <h3>Today's Date</h3>
 
-            <h3 id="currentDate"></h3>
+            <h2 id="currentDate"></h2>
 
             <br>
 
-            <h3 id="currentTime"></h3>
+            <h3>Current Time</h3>
 
-        </div>
-
-        <!-- Quick Actions -->
-
-        <div class="panel">
-
-            <h2>Quick Actions</h2>
-
-            <button onclick="location.href='students.html'">
-
-                <i class="fa-solid fa-user-plus"></i>
-
-                Add Student
-
-            </button>
-
-            <button onclick="location.href='attendance.html'">
-
-                <i class="fa-solid fa-calendar-check"></i>
-
-                Mark Attendance
-
-            </button>
-
-            <button onclick="location.href='report.html'">
-
-                <i class="fa-solid fa-chart-column"></i>
-
-                View Reports
-
-            </button>
-
-        </div>
-
-        <!-- Status -->
-
-        <div class="panel">
-
-            <h2>System Status</h2>
-
-            <p>🟢 System Running Normally</p>
-
-            <p>✔ Database Connected</p>
-
-            <p>✔ Local Storage Active</p>
-
-            <p>✔ All Modules Working</p>
+            <h2 id="currentTime"></h2>
 
         </div>
 
@@ -252,4 +189,4 @@ rel="stylesheet">
 <script src="js/dashboard.js"></script>
 
 </body>
-</html>             
+</html>
