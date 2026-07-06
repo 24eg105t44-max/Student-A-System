@@ -1,23 +1,12 @@
-// ======================================
-// Student Attendance Management System
-// Login System (Admin + Student)
-// ======================================
-
-// Admin Credentials
 const ADMIN_USERNAME = "admin";
 const ADMIN_PASSWORD = "admin123";
-
-// Get Elements
 const loginForm = document.getElementById("loginForm");
 const loginType = document.getElementById("loginType");
 const username = document.getElementById("username");
 const password = document.getElementById("password");
 const error = document.getElementById("error");
 const togglePassword = document.getElementById("togglePassword");
-
-// ======================================
-// LOGIN
-// ======================================
+const loginBtn = document.querySelector(".login-btn");
 
 loginForm.addEventListener("submit", function (e) {
 
@@ -27,80 +16,104 @@ loginForm.addEventListener("submit", function (e) {
     const user = username.value.trim();
     const pass = password.value.trim();
 
-    // ------------------------
-    // ADMIN LOGIN
-    // ------------------------
+    error.innerHTML = "";
 
-    if (role === "admin") {
+    if (user === "" || pass === "") {
 
-        if (user === ADMIN_USERNAME && pass === ADMIN_PASSWORD) {
-
-            localStorage.setItem("loggedIn", "true");
-            localStorage.setItem("userRole", "admin");
-            localStorage.setItem("username", user);
-
-            error.style.color = "lightgreen";
-            error.innerHTML = "✔ Admin Login Successful";
-
-            setTimeout(() => {
-
-                window.location.href = "dashboard.html";
-
-            }, 1000);
-
-        } else {
-
-            error.style.color = "#ff8080";
-            error.innerHTML = "❌ Invalid Admin Username or Password";
-
-        }
+        error.style.color = "#ff8080";
+        error.innerHTML = "Please enter all fields.";
+        return;
 
     }
 
-    // ------------------------
-    // STUDENT LOGIN
-    // ------------------------
+    loginBtn.disabled = true;
+    loginBtn.innerHTML =
+        '<i class="fa-solid fa-spinner fa-spin"></i> Logging in...';
 
-    else {
+    setTimeout(function () {
 
-        let students = JSON.parse(localStorage.getItem("students")) || [];
+if (role === "admin") {
 
-        let student = students.find(function (s) {
+            if (
+                user === ADMIN_USERNAME &&
+                pass === ADMIN_PASSWORD
+            ) {
 
-            return s.roll === user && s.password === pass;
+                localStorage.setItem("loggedIn", "true");
+                localStorage.setItem("userRole", "admin");
+                localStorage.setItem("username", user);
 
-        });
+                error.style.color = "#7CFC00";
+                error.innerHTML = "✔ Login Successful";
 
-        if (student) {
+                setTimeout(function () {
 
-            localStorage.setItem("loggedIn", "true");
-            localStorage.setItem("userRole", "student");
-            localStorage.setItem("studentRoll", student.roll);
-            localStorage.setItem("studentName", student.name);
+                    window.location.href = "dashboard.html";
 
-            error.style.color = "lightgreen";
-            error.innerHTML = "✔ Student Login Successful";
+                }, 800);
 
-            setTimeout(() => {
+            } else {
 
-                window.location.href = "student-dashboard.html";
+                loginFailed("Invalid Admin Username or Password");
 
-            }, 1000);
-
-        } else {
-
-            error.style.color = "#ff8080";
-            error.innerHTML = "❌ Invalid Roll Number or Password";
+            }
 
         }
 
-    }
+         else {
+
+            let students =
+                JSON.parse(localStorage.getItem("students")) || [];
+
+            let student = students.find(function (s) {
+
+                return (
+                    s.roll === user &&
+                    s.password === pass
+                );
+
+            });
+
+            if (student) {
+
+                localStorage.setItem("loggedIn", "true");
+                localStorage.setItem("userRole", "student");
+                localStorage.setItem("studentRoll", student.roll);
+                localStorage.setItem("studentName", student.name);
+
+                error.style.color = "#7CFC00";
+                error.innerHTML = "✔ Login Successful";
+
+                setTimeout(function () {
+
+                    window.location.href =
+                        "student-dashboard.html";
+
+                }, 800);
+
+            } else {
+
+                loginFailed("Invalid Roll Number or Password");
+
+            }
+
+        }
+
+    }, 600);
 
 });
 
-// ======================================
-// SHOW / HIDE PASSWORD
-// ======================================
+function loginFailed(message) {
+
+    error.style.color = "#ff8080";
+    error.innerHTML = "❌ " + message;
+
+    loginBtn.disabled = false;
+
+    loginBtn.innerHTML =
+        '<i class="fa-solid fa-right-to-bracket"></i> Login';
+
+}
 
 togglePassword.addEventListener("click", function () {
 
@@ -122,27 +135,21 @@ togglePassword.addEventListener("click", function () {
 
 });
 
-// ======================================
-// CHANGE PLACEHOLDER
-// ======================================
-
 loginType.addEventListener("change", function () {
 
     if (this.value === "admin") {
 
-        username.placeholder = "Enter Admin Username";
+        username.placeholder =
+            "Enter Admin Username";
 
     } else {
 
-        username.placeholder = "Enter Roll Number";
+        username.placeholder =
+            "Enter Roll Number";
 
     }
 
 });
-
-// ======================================
-// AUTO FOCUS
-// ======================================
 
 window.onload = function () {
 
@@ -150,16 +157,13 @@ window.onload = function () {
 
 };
 
-// ======================================
-// ENTER KEY SUPPORT
-// ======================================
-
-document.addEventListener("keypress", function (e) {
+ocument.addEventListener("keydown", function (e) {
 
     if (e.key === "Enter") {
 
-        loginForm.dispatchEvent(new Event("submit"));
+        loginForm.requestSubmit();
 
     }
 
 });
+            
