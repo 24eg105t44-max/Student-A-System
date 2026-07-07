@@ -81,7 +81,7 @@ body{
     padding:30px;
 }
 
-/* Topbar */
+
 
 .topbar{
     display:flex;
@@ -98,7 +98,7 @@ body{
     font-size:28px;
 }
 
-/* Profile */
+
 
 .profile{
     display:flex;
@@ -185,7 +185,7 @@ body{
     font-size:18px;
 }
 
-/* Card colors */
+
 
 .blue{
     background:linear-gradient(135deg,#1565c0,#42a5f5);
@@ -203,7 +203,7 @@ body{
     background:linear-gradient(135deg,#ef6c00,#ffa726);
 }
 
-/* Content */
+
 
 .content{
     display:grid;
@@ -257,7 +257,7 @@ body{
     border-radius:20px;
 }
 
-/* Responsive */
+
 
 @media(max-width:992px){
 
