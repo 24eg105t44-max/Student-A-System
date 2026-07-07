@@ -133,7 +133,7 @@ body{
     transform:translateY(-2px);
 }
 
-/* Date & Time */
+
 
 .date-time-card{
     background:#1565c0;
@@ -155,7 +155,7 @@ body{
     font-size:22px;
 }
 
-/* Cards */
+
 
 .cards{
     display:grid;
@@ -203,7 +203,7 @@ body{
     background:linear-gradient(135deg,#ef6c00,#ffa726);
 }
 
-/* History & Notifications */
+
 
 .history{
     margin-top:30px;
@@ -239,7 +239,7 @@ tr:hover{
     background:#f4f7fc;
 }
 
-/* Scrollbar */
+
 
 ::-webkit-scrollbar{
     width:8px;
