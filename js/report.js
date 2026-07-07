@@ -1,20 +1,6 @@
-// ======================================
-// Student Attendance Management System
-// report.js
-// ======================================
-
-// ----------------------------
-// LOGIN CHECK
-// ----------------------------
-
 if (localStorage.getItem("loggedIn") !== "true") {
     window.location.href = "index.html";
 }
-
-// ----------------------------
-// LOGOUT
-// ----------------------------
-
 document.getElementById("logoutBtn").addEventListener("click", function () {
 
     if (confirm("Do you want to logout?")) {
@@ -26,18 +12,10 @@ document.getElementById("logoutBtn").addEventListener("click", function () {
 
 });
 
-// ----------------------------
-// LOAD DATA
-// ----------------------------
-
 const students = JSON.parse(localStorage.getItem("students")) || [];
 const attendance = JSON.parse(localStorage.getItem("attendance")) || [];
 
 const reportTable = document.getElementById("reportTable");
-
-// ----------------------------
-// GENERATE REPORT
-// ----------------------------
 
 function generateReport() {
 
@@ -99,10 +77,6 @@ function generateReport() {
 
 generateReport();
 
-// ----------------------------
-// SEARCH STUDENT
-// ----------------------------
-
 document.getElementById("searchStudent")
 .addEventListener("keyup", function () {
 
@@ -126,20 +100,12 @@ document.getElementById("searchStudent")
 
 });
 
-// ----------------------------
-// PRINT REPORT
-// ----------------------------
-
 document.getElementById("printBtn")
 .addEventListener("click", function () {
 
     window.print();
 
 });
-
-// ----------------------------
-// EXPORT CSV
-// ----------------------------
 
 document.getElementById("exportBtn")
 .addEventListener("click", function () {
