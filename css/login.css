@@ -13,12 +13,12 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    /* Perfect matte grey background match */
+  
     background: #737373; 
     position: relative;
 }
 
-/* Clear overlay so the grey shines through cleanly */
+
 .overlay {
     position: absolute;
     inset: 0;
@@ -29,7 +29,7 @@ body {
     display: none;
 }
 
-/* Sleek frosted dark-tint container card */
+
 .login-container {
     position: relative;
     z-index: 2;
@@ -59,7 +59,6 @@ body {
     margin-bottom: 30px;
 }
 
-/* Input Fields Styling */
 .input-box {
     position: relative;
     margin-bottom: 22px;
@@ -100,7 +99,7 @@ body {
     color: #555;
 }
 
-/* Blue Action Login Button */
+
 .login-btn {
     width: 100%;
     padding: 16px;
@@ -155,7 +154,7 @@ hr {
     margin: 30px 0 25px 0;
 }
 
-/* Credentials Info Text */
+
 .demo-credentials {
     font-size: 13px;
     color: rgba(255, 255, 255, 0.9);
